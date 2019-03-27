@@ -84,12 +84,28 @@ public class JdbcTokenStoreTest {
   }
 
   DataSource datasource() {
-    HikariConfig config = new HikariConfig();
-    config.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
+/*    HikariConfig config = new HikariConfig();
+*//*    config.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
     config.addDataSourceProperty("url", "jdbc:h2:mem:testdb" + new Random().nextInt());
     config.addDataSourceProperty("user", "sa");
-    config.addDataSourceProperty("password", "");
+    config.addDataSourceProperty("password", "");*//*
+   // config.setDataSourceClassName("com.mysql.cj.jdbc.Driver");
+    config.addDataSourceProperty("url", "jdbc:mysql://10.142.233.78:8601/flow_zltest?useUnicode=true&characterEncoding=utf-8&autoReconnect=true");
+    config.addDataSourceProperty("user", "gw");
+    config.addDataSourceProperty("password", "gw123!@#");*/
 
-    return new HikariDataSource(config);
+      //实例化类
+      HikariConfig hikariConfig = new HikariConfig();
+      //设置url
+      hikariConfig.setJdbcUrl("jdbc:mysql://10.142.233.78:8601/flow_zltest?useUnicode=true&characterEncoding=utf-8&autoReconnect=true");
+      //数据库帐号
+      hikariConfig.setUsername("gw");
+      //数据库密码
+      hikariConfig.setPassword("gw123!@#");
+      hikariConfig.addDataSourceProperty("cachePrepStmts", "true");
+      hikariConfig.addDataSourceProperty("prepStmtCacheSize", "250");
+      hikariConfig.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+
+    return new HikariDataSource(hikariConfig);
   }
 }

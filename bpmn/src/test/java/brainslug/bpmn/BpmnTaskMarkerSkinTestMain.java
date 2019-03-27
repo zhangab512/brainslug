@@ -13,7 +13,7 @@ public class BpmnTaskMarkerSkinTestMain {
   public static void main(String[] args) throws FileNotFoundException {
     Format format = Format.PNG;
     JGraphRenderer renderer = new JGraphRenderer(new BpmnTaskMarkerSkin());
-    FileOutputStream output = new FileOutputStream(new File("" + UUID.randomUUID() + "." + format.name().toLowerCase()));
+    FileOutputStream output = new FileOutputStream(new File("E:\\adrobisch\\bpmn\\src\\test\\java\\brainslug\\bpmn\\" + UUID.randomUUID() + "." + format.name().toLowerCase()));
     renderer.render(new BpmnFlowBuilder() {
       @Override
       public void define() {

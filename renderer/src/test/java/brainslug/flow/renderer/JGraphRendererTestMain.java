@@ -11,7 +11,9 @@ public class JGraphRendererTestMain {
     Format format = Format.JPG;
     JGraphRenderer renderer = new JGraphRenderer(new DefaultSkin());
     FileOutputStream output = new FileOutputStream(new File("" + UUID.randomUUID() + "." + format.name().toLowerCase()));
-    renderer.render(JGraphRendererTest.afterFlow(), output, format);
+//    renderer.render(JGraphRendererTest.afterFlow(), output, format);
+    renderer.render(JGraphRendererTest.choiceFlow(), output, format);
+
   }
 
 }

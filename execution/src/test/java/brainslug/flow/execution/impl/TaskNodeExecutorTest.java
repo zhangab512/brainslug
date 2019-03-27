@@ -84,6 +84,7 @@ public class TaskNodeExecutorTest extends AbstractExecutionTest {
     class Delegate {
       @Execute
       public void doSomeThing() {
+        System.out.println("print test ..... call delegate...");
       }
     }
 
